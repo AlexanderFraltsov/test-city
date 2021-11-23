@@ -1,0 +1,31 @@
+<section class="wrapper">
+  <form class="search-controls">
+    <mat-form-field class="city-form-field" appearance="fill">
+      <mat-label>Наберите название города</mat-label>
+      <input matInput type="text" [formControl]="cityFormControl" [errorStateMatcher]="matcher" (keydown)="onSubmit($event)">
+      <button *ngIf="city" matSuffix mat-icon-button aria-label="Clear" (click)="clearCity()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="cityFormControl.hasError('minlength')">
+        Минимум <strong>2</strong> символа
+      </mat-error>
+      <mat-error *ngIf="cityFormControl.hasError('required')">
+        <strong>Необходимо</strong> заполнить это поле
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary"
+      (click)="showCityOnSubmit()"
+      [disabled]="cityFormControl.invalid"
+    >Показать</button>
+  </form>
+  <a *ngIf="cityUrl" mat-raised-button
+    [href]="cityUrl | safe"
+    target="_blank"
+  >Перейти на страницу города {{city}}</a>
+  <iframe *ngIf="cityUrl"
+    title="wiki page"
+    height="600px"
+    class="city-iframe"
+    [src]="cityUrl | safe">
+  </iframe>
+</section>

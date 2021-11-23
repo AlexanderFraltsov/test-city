@@ -1,0 +1,7 @@
+<mat-tab-group (selectedTabChange)="change($event)" [selectedIndex]="selectedIndex" color="primary">
+  <mat-tab *ngFor="let tab of tabs" [label]="tab.label">
+    <span class="content">
+      {{ tab.path }}
+    </span>
+  </mat-tab>
+</mat-tab-group>

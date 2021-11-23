@@ -1,0 +1,24 @@
+@import '../../../../../partials/mixins';
+
+$margin: 1rem;
+
+.wrapper {
+  @include columnWrapper();
+  gap: $margin;
+}
+
+.search-controls {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: $margin;
+}
+
+.city-form-field {
+  width: 20rem;
+}
+
+.city-iframe {
+  width: 100%;
+  overflow-x: hidden;
+}
