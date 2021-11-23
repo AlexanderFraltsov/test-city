@@ -10,6 +10,7 @@ export const GLOBALS = {
 }
 
 export const tabs = [
+  { path: paths.main, label: 'Главная' },
   { path: paths.time, label: 'Время' },
   { path: paths.city, label: 'Город' },
 ];
